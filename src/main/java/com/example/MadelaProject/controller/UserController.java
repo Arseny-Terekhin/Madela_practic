@@ -95,6 +95,21 @@ public class UserController {
     }
 
 
+    @PostMapping("/user/list")
+    public ResponseEntity list(@RequestParam  Long officeId, @RequestParam(required = false) String firstName,
+                               @RequestParam(required = false) String lastName,  @RequestParam(required = false) String middleName,
+                               @RequestParam(required = false) String position,  @RequestParam(required = false) String docNumber,
+                               @RequestParam(required = false)  Long citizenshipCode){
+        try {
+            return ResponseEntity.ok(userService.list(officeId,firstName, lastName, middleName, position, docNumber, citizenshipCode));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("eror");
+        }
+
+    }
+
+
 
 
 

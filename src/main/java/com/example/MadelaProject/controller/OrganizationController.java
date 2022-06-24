@@ -55,5 +55,18 @@ public class OrganizationController {
         }
     }
 
+    @GetMapping("/list")
+    public ResponseEntity list(@RequestParam String name, @RequestParam(required = false) String inn, @RequestParam(required = false) Boolean isActive){
+        try{
+            return ResponseEntity.ok(organizationService.list(name, inn, isActive));
+        }catch (OrganizationException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("eror");
+        }
+
+    }
+
 
 }

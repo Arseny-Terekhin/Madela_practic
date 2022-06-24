@@ -8,7 +8,7 @@ public class OfficeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long orgTd;
+    private Long orgId;
     private String name;
     private String address;
     private String phone;
@@ -24,12 +24,12 @@ public class OfficeEntity {
         this.id = id;
     }
 
-    public Long getOrgTd() {
-        return orgTd;
+    public Long getOrgId() {
+        return orgId;
     }
 
-    public void setOrgTd(Long orgTd) {
-        this.orgTd = orgTd;
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 
     public String getName() {

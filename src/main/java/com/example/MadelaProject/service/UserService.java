@@ -1,20 +1,30 @@
 package com.example.MadelaProject.service;
 
+import com.example.MadelaProject.entity.OrganizationEntity;
 import com.example.MadelaProject.entity.UserEntity;
 import com.example.MadelaProject.exeption.ActivationCodeException;
 import com.example.MadelaProject.exeption.UserAlreadyExistException;
+import com.example.MadelaProject.model.OrganizationTwo;
 import com.example.MadelaProject.model.User;
+import com.example.MadelaProject.model.UserModelTwo;
 import com.example.MadelaProject.repository.UserRepo;
+import com.example.MadelaProject.specification.UserFiltr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private UserFiltr userFiltr;
 
     public UserEntity registration(UserEntity userEntity) throws UserAlreadyExistException {
         if (userRepo.findByLogin(userEntity.getLogin()) != null){
@@ -85,5 +95,13 @@ public class UserService {
         return User.toModel(user);
     }
 
+
+    public List<UserModelTwo> list(Long officeId, String firstName,
+                                   String lastName, String middleName,
+                                   String position, String docNumber,
+                                   Long citizenshipCode){
+        List<UserEntity> user = userFiltr.findByCondition(officeId,firstName, lastName, middleName, position, docNumber, citizenshipCode);
+        return user.stream().map(UserModelTwo::toModel).collect(Collectors.toList());
+    }
 
 }

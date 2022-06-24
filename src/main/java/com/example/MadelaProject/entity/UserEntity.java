@@ -19,8 +19,8 @@ public class UserEntity {
     private String middleName;
     private Long position;
     private String phone;
-    private Long docName;
-    private String docNumber;
+    private String docName;
+    private Long docNumber;
     private Date docDate;
     private String citizenshipName;
     private Long citizenshipCode;
@@ -108,19 +108,19 @@ public class UserEntity {
         this.phone = phone;
     }
 
-    public Long getDocName() {
+    public String getDocName() {
         return docName;
     }
 
-    public void setDocName(Long docCode) {
+    public void setDocName(String docCode) {
         this.docName = docCode;
     }
 
-    public String getDocNumber() {
+    public Long getDocNumber() {
         return docNumber;
     }
 
-    public void setDocNumber(String docNumber) {
+    public void setDocNumber(Long docNumber) {
         this.docNumber = docNumber;
     }
 

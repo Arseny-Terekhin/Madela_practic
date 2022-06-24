@@ -12,8 +12,8 @@ public class User {
     private String middleName;
     private Long position;
     private String phone;
-    private Long docName;
-    private String docNumber;
+    private String docName;
+    private Long docNumber;
     private Date docDate;
     private String citizenshipName;
     private Long citizenshipCode;
@@ -86,19 +86,19 @@ public class User {
         this.phone = phone;
     }
 
-    public Long getDocName() {
+    public String getDocName() {
         return docName;
     }
 
-    public void setDocName(Long docName) {
+    public void setDocName(String docName) {
         this.docName = docName;
     }
 
-    public String getDocNumber() {
+    public Long getDocNumber() {
         return docNumber;
     }
 
-    public void setDocNumber(String docNumber) {
+    public void setDocNumber(Long docNumber) {
         this.docNumber = docNumber;
     }
 
