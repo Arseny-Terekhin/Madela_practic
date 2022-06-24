@@ -53,4 +53,14 @@ public class OfficeController {
         }
     }
 
+    @GetMapping("/list")
+    public ResponseEntity list(@RequestParam Long orgId, @RequestParam(required = false) String name, @RequestParam(required = false) String phone, @RequestParam(required = false) Boolean isActive ){
+        try {
+            return ResponseEntity.ok(officeServise.list(orgId, name, phone, isActive));
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("eror");
+        }
+    }
+
 }
